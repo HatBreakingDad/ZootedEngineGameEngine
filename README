@@ -1,0 +1,19 @@
+This is a game-engine collaboration project involving four individuals.
+These individuals are each creating game-engines which will complement each other and form a 'super-engine'
+List of Engines:
+GenieEngineGameEngine/GE - Ditch Skype and Discord, this is the next Gamer Chat Service
+SpiralEngineGameEngine/SE - The Newest 3D Game Engine on the Market and Rivals Unity in it's sense of Compatibility.
+PollockEngineGameEngine/PE - One of the best 2D Game Engines available on the market and is perfect for IOS and Android Developers.
+ZootedEngineGameEngine/ZE - A 2D GUI engine that is compatible with both PC and Mobile Devices.
+
+How do these engines work together?
+GE has automatic in game overlay for both SE and PE, with the help of ZE in creating a dynamic GUI.
+The GUI for both SE and PE is made by ZE.
+GE enables developers to communicate and share projects using SE,PE and ZE
+
+Feature of ZE
+Dynamic Buttons and Text Creation
+W.I.P
+DropDown Menus
+GUI Effects
+  
