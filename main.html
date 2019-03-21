@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ZootedEngineGameEngine</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background:#d1e1ae; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="576"></canvas>
+<script src="objects.js"></script>
+<script src="menu.js"></script>
+<script src="game.js"></script>
+<script>
+//Canvas Creation 
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+//Image Loading
+var img = new Image();
+img.src = "C:/Users/25499/Desktop/europa-universalis-iv-23031-2880x1800.jpg"
+//Variables + Arraysng.png
+
+var screeny = 0
+var screenx = canvas.width/3
+var relations = []
+var highscores = []
+var thou_date = 0
+var sub_menu = 0
+var x_inc = 0
+var old_date = 0
+var difference = 0
+var uni_select = 1
+var switch_state = false
+var inverted = true
+var escape = false
+var date_difference = false
+var repos = 0
+var new_date = new Date()
+var change_color = false
+var uni_mult = 0.25
+var gravity_mult = 0.25
+var x_value = 0;
+var y_value = 0;
+var first = true;
+var limit = 25
+var loading_sequence = false
+var drop_health = true
+var game_over = false
+//Keyboard Variables
+var sPressed = false;
+var spacePressed = false;
+var enterPressed = false;
+var bPressed = false;
+var pPressed = false;
+var upPressed = false;
+var downPressed = false;
+var leftPressed = false;
+var rightPressed = false;
+var escapePressed = false;
+//Variables and Lists
+var score = 0
+var saved_objects = []
+var saved = false
+var mouse_x = 0
+var mouse_y = 0
+var mouse_val = 0
+var mouse_click = false
+var incremental_id = 0
+var enemy_id = 0
+var menu_exists = true
+var projectiles = []
+var enemy_projectiles = []
+var player_objects = []
+var difficulty = 1
+//Add Event Listeners
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("onmousemove", onmousemove, false);
+player_objects.push(new player(canvas.width/2,canvas.height-canvas.width/24 - 1,canvas.width/24,"rgb(37,126,71)",100))
+//if key is down
+function keyDownHandler(e) {
+    //Arrow Keys
+    if(event.keyCode == 39) {
+        rightPressed = true;
+    }
+    if(event.keyCode == 37) {
+        leftPressed = true;
+    }
+    if(event.keyCode == 38) {
+        upPressed = true;
+    }
+    if(event.keyCode == 40)
+    {
+        downPressed = true;
+    }
+    //Non Arrow Keys
+    if(event.keyCode == 32)
+    {
+        spacePressed = true;
+    }
+    if(event.keyCode == 13)
+    {
+        enterPressed = true;
+    }
+    if(event.keyCode == 83)
+    {
+        sPressed = true;
+    }
+    if(event.keyCode == 66)
+    {
+        bPressed = true;
+    }
+    if(event.keyCode == 80)
+    {
+        if(pPressed)
+        {
+            pPressed = false;
+        }
+        else
+        {
+            pPressed = true;
+        }
+    }
+    if(event.keyCode == 27)
+    {
+        escapePressed = true;
+    }
+}
+//if key is not down
+function keyUpHandler(e) {
+    //Arrow keys
+    if(event.keyCode == 39) {
+        rightPressed = false;
+    }
+    if(event.keyCode == 37) {
+        leftPressed = false;
+    }
+    if(event.keyCode == 38) {
+        upPressed = false;
+    }
+    if(event.keyCode == 40)
+    {
+        downPressed = false;
+    }
+    //Non arrow keys
+    if(event.keyCode == 32)
+    {
+        spacePressed = false;
+    }
+    if(event.keyCode == 13)
+    {
+        enterPressed = false;
+    }
+    if(event.keyCode == 83)
+    {
+        sPressed = false;
+    }
+    if(event.keyCode == 66)
+    {
+        bPressed = false;
+    }
+    if(event.keyCode == 27)
+    {
+        escapePressed = false;
+    }
+}   
+//If mouse click, create balls
+// function printMousePos(event) {
+//     mouse_x = event.clientX
+//     mouse_y = event.clientY
+// }
+function onmouseclick(event) {
+    mouse_click = true
+}
+document.addEventListener("click",onmouseclick)
+// document.addEventListener("click",printMousePos)
+//If mouse move, update mouse co-ordinates
+onmousemove = function(event) {
+    mouse_x = event.clientX
+    mouse_y = event.clientY
+}
+document.addEventListener("click",onmousemove)
+game();
+setInterval(game,10)
+
+</script>
+
+</body>
+</html>
